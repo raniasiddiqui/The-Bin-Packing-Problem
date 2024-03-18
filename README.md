@@ -44,3 +44,9 @@ Maintains a list of forbidden moves (tabu list) to prevent revisiting previously
 ### Ant Colony Optimization (ACO):
 Inspired by the foraging behavior of ants, ACO algorithms simulate the collective intelligence of ant colonies to find optimal solutions to optimization problems. In the context of the bin packing problem, ACO algorithms work by modeling the problem as a graph, where nodes represent the bins and edges represent the items to be packed. Ants construct solutions by iteratively adding items to bins based on pheromone trails and heuristic information. Pheromone trails are updated based on the quality of solutions found by the ants, allowing the algorithm to converge towards optimal or near-optimal solutions over time. ACO algorithms offer a decentralized and adaptive approach to optimization, making them well-suited for dynamic and stochastic environments like the bin packing problem. They have been shown to provide competitive results compared to other solution approaches.
 
+
+# Documentation:
+
+## Project Proposal:
+[Proposal](https://docs.google.com/document/d/1Ck37eiRVEnuWQ6Vo7IscNZCCsrEjU73PAoiYA8aOscc/edit)
+[Research Articles](https://docs.google.com/document/d/1gKPPMFrwnw0Ydzl-9yHkfl0QWCrGfyt1S48ugWv7wSs/edit?usp=sharing)
