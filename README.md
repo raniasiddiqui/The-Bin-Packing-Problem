@@ -49,4 +49,5 @@ Inspired by the foraging behavior of ants, ACO algorithms simulate the collectiv
 
 ## Project Proposal:
 [Proposal](https://docs.google.com/document/d/1Ck37eiRVEnuWQ6Vo7IscNZCCsrEjU73PAoiYA8aOscc/edit)
+
 [Research Articles](https://docs.google.com/document/d/1gKPPMFrwnw0Ydzl-9yHkfl0QWCrGfyt1S48ugWv7wSs/edit?usp=sharing)
