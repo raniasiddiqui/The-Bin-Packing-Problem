@@ -1,3 +1,4 @@
+import random
 def bin_packing(items, bin_capacity):
     n = len(items)
     dp = [float('inf')] * (n + 1)
@@ -22,10 +23,33 @@ def bin_packing(items, bin_capacity):
     bins.reverse()
     return bins
 
+def generate_random_items(num_items):
+    return [random.randint(1, 10) for _ in range(num_items)]
+
+def experiment(num_items_list, bin_capacity_list):
+    for num_items in num_items_list:
+        for bin_capacity in bin_capacity_list:
+            items = generate_random_items(num_items)
+            packed_bins = bin_packing(items, bin_capacity)
+            total_bins = len(packed_bins)
+            total_items_packed = sum(len(bin_items) for bin_items in packed_bins)
+            print(f"Number of items: {num_items}, Bin capacity: {bin_capacity}")
+            print(f"Worst solution: {total_bins} bins, Best solution: 1 bin")
+            print(f"Total items packed: {total_items_packed}\n")
+            print("Items packed into bins:")
+            for bin_items in packed_bins:
+                print(bin_items)
+            print("\n")
+
 # Example usage
-items = [3, 5, 2, 7, 1, 4, 6]
-bin_capacity = 10
-packed_bins = bin_packing(items, bin_capacity)
-print("Items packed into bins:")
-for bin_items in packed_bins:
-    print(bin_items)
+num_items_list = [10, 20, 30, 40, 50, 60]
+bin_capacity_list = [40, 80, 90, 100, 150]
+experiment(num_items_list, bin_capacity_list)
+
+# # Example usage
+# items = [3, 5, 2, 7, 1, 4, 6]
+# bin_capacity = 10
+# packed_bins = bin_packing(items, bin_capacity)
+# print("Items packed into bins:")
+# for bin_items in packed_bins:
+#     print(bin_items)
