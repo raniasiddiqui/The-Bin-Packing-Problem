@@ -1,4 +1,5 @@
-import random
+import time
+
 def bin_packing(items, bin_capacity):
     n = len(items)
     dp = [float('inf')] * (n + 1)
@@ -23,33 +24,24 @@ def bin_packing(items, bin_capacity):
     bins.reverse()
     return bins
 
-def generate_random_items(num_items):
-    return [random.randint(1, 10) for _ in range(num_items)]
 
-def experiment(num_items_list, bin_capacity_list):
-    for num_items in num_items_list:
-        for bin_capacity in bin_capacity_list:
-            items = generate_random_items(num_items)
-            packed_bins = bin_packing(items, bin_capacity)
-            total_bins = len(packed_bins)
-            total_items_packed = sum(len(bin_items) for bin_items in packed_bins)
-            print(f"Number of items: {num_items}, Bin capacity: {bin_capacity}")
-            print(f"Worst solution: {total_bins} bins, Best solution: 1 bin")
-            print(f"Total items packed: {total_items_packed}\n")
-            print("Items packed into bins:")
-            for bin_items in packed_bins:
-                print(bin_items)
-            print("\n")
+
+def read_item_sizes_from_file(file_name, n):
+    with open(file_name, 'r') as file:
+        items = [int(line.strip()) for line in file]
+    return items[:n]
+
+def experiment(n, bin_capacity):
+    items = read_item_sizes_from_file(r"C:\Users\Lenovo\Downloads\bin_sizes.txt",n)
+    start_time = time.time()
+    packed_bins = bin_packing(items, bin_capacity)
+    end_time = time.time()
+    total_bins = len(packed_bins)
+    print(f"Number of items: {n}, Bin capacity: {bin_capacity}")
+    print(f"Total bins: {total_bins}")
+    print(f"Execution time: {end_time - start_time:.6f} seconds\n")
 
 # Example usage
-num_items_list = [10, 20, 30, 40, 50, 60]
-bin_capacity_list = [40, 80, 90, 100, 150]
-experiment(num_items_list, bin_capacity_list)
-
-# # Example usage
-# items = [3, 5, 2, 7, 1, 4, 6]
-# bin_capacity = 10
-# packed_bins = bin_packing(items, bin_capacity)
-# print("Items packed into bins:")
-# for bin_items in packed_bins:
-#     print(bin_items)
+n = 10000  # Specify the number of items you want to process
+bin_capacity = 20  # Define the capacity of each bin
+experiment(n, bin_capacity)
